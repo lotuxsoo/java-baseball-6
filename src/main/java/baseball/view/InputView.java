@@ -1,10 +1,13 @@
 package baseball.view;
 
-import baseball.validator.Validator;
+import static baseball.validator.Validator.validateIsRestartOrExit;
+import static baseball.validator.Validator.validateNumberDuplicated;
+import static baseball.validator.Validator.validateNumberIsNumeric;
+import static baseball.validator.Validator.validateNumberLength;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    private Validator validator = new Validator();
 
     public String askPlayerNumbers() {
         String input = Console.readLine();
@@ -20,12 +23,12 @@ public class InputView {
 
     //사용자 인풋 예외처리 여기서
     private void checkNumbersValidation(String input) {
-        validator.validateNumberLength(input);
-        validator.validateNumberDuplicated(input);
-        validator.validateNumberIsNumeric(input);
+        validateNumberLength(input);
+        validateNumberDuplicated(input);
+        validateNumberIsNumeric(input);
     }
 
     private void checkNumberValidation(String input) {
-        validator.validateIsRestartOrExit(input);
+        validateIsRestartOrExit(input);
     }
 }

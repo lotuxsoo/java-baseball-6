@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Validator {
-    public void validateNumberLength(String numbers) {
+    public static void validateNumberLength(String numbers) {
         if (numbers.length() != NUMBER_LENGTH) {
             throw new IllegalArgumentException("숫자길이가 3이 아님");
         }
     }
 
-    public void validateNumberDuplicated(String numbers) {
+    public static void validateNumberDuplicated(String numbers) {
         Set<Character> set = new HashSet<>();
         for (int i = 0; i < numbers.length(); i++) {
             set.add(numbers.charAt(i));
@@ -24,7 +24,7 @@ public class Validator {
         }
     }
 
-    public void validateNumberIsNumeric(String numbers) {
+    public static void validateNumberIsNumeric(String numbers) {
         for (int i = 0; i < numbers.length(); i++) {
             if (!('0' <= numbers.charAt(i) && numbers.charAt(i) <= '9')) {
                 throw new IllegalArgumentException("잘못된 값 입력");
@@ -32,7 +32,7 @@ public class Validator {
         }
     }
 
-    public void validateIsRestartOrExit(String number) {
+    public static void validateIsRestartOrExit(String number) {
         if (!(number.equals(RESTART_STRING) || number.equals(EXIT_STRING))) {
             throw new IllegalArgumentException("1 또는 2 이외의 값 입력");
         }
